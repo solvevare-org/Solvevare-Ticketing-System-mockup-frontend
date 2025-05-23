@@ -9,15 +9,12 @@ import {
   MessageSquare,
   UserPlus,
   Star,
-  AlertCircle,
-  CheckCircle,
-  XCircle,
   User,
+  XCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AssignTicketDialog } from '@/components/tickets/assign-ticket-dialog';
 import { useAuth } from '@/context/auth-context';

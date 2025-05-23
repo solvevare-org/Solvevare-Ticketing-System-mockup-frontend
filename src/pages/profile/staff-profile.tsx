@@ -1,4 +1,4 @@
-import { Building, Mail, MapPin, Phone, User, Wrench, Star } from 'lucide-react';
+import { Building, Mail, Wrench, Star } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';

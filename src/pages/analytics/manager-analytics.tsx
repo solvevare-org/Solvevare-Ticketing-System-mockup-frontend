@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { format, subDays, startOfMonth, endOfMonth } from 'date-fns';
+import { format, subDays } from 'date-fns';
 import {
   BarChart as BarChartIcon,
   LineChart as LineChartIcon,
@@ -10,10 +9,7 @@ import {
   Clock,
   DollarSign,
   Users,
-  Building,
   CheckCircle,
-  AlertCircle,
-  Calendar,
   ArrowRight,
   Filter
 } from 'lucide-react';
@@ -23,8 +19,7 @@ import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
-import { useAuth } from '@/context/auth-context';
-import { useTickets, TicketCategory } from '@/context/ticket-context';
+import { useTickets } from '@/context/ticket-context';
 
 // Mock data for charts
 const generateMockData = (days: number) => {
@@ -39,7 +34,6 @@ const generateMockData = (days: number) => {
 const monthlyData = generateMockData(30);
 
 export function ManagerAnalytics() {
-  const { user } = useAuth();
   const { tickets } = useTickets();
   const [timeRange, setTimeRange] = useState('30');
   const [tab, setTab] = useState('overview');
@@ -184,8 +178,8 @@ export function ManagerAnalytics() {
               <div className="h-[300px] mt-4">
                 <div className="h-full w-full">
                   <div className="flex h-full items-end gap-2">
-                    {monthlyData.slice(-Number(timeRange)).map((day, i) => {
-                      const height = (day.tickets / 10) * 100;
+                    {monthlyData.slice(-Number(timeRange)).map((_, i) => {
+                      const height = (monthlyData[i].tickets / 10) * 100;
                       return (
                         <div key={i} className="relative flex-1">
                           <div
@@ -194,7 +188,7 @@ export function ManagerAnalytics() {
                           >
                             <div
                               className="absolute bottom-0 left-0 right-0 bg-primary rounded-t"
-                              style={{ height: `${(day.resolved / 10) * 100}%` }}
+                              style={{ height: `${(monthlyData[i].resolved / 10) * 100}%` }}
                             />
                           </div>
                         </div>
@@ -315,7 +309,7 @@ export function ManagerAnalytics() {
               <div className="h-[300px] mt-4">
                 <div className="h-full w-full">
                   <div className="flex h-full items-end gap-2">
-                    {monthlyData.slice(-Number(timeRange)).map((day, i) => {
+                    {monthlyData.slice(-Number(timeRange)).map((_, i) => {
                       const height = Math.random() * 80 + 20;
                       return (
                         <div key={i} className="relative flex-1">
@@ -609,8 +603,8 @@ export function ManagerAnalytics() {
               <div className="h-[300px] mt-4">
                 <div className="h-full w-full">
                   <div className="flex h-full items-end gap-2">
-                    {monthlyData.slice(-Number(timeRange)).map((day, i) => {
-                      const height = (day.cost / 500) * 100;
+                    {monthlyData.slice(-Number(timeRange)).map((_, i) => {
+                      const height = (monthlyData[i].cost / 500) * 100;
                       return (
                         <div key={i} className="relative flex-1">
                           <div

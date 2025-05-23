@@ -9,7 +9,6 @@ import {
   Settings, 
   DollarSign,
   Calendar,
-  Menu,
   X,
   ChevronDown,
   ChevronRight,

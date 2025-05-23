@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns';
 import { 
@@ -7,14 +7,16 @@ import {
   CheckCircle, 
   AlertCircle, 
   Calendar, 
-  ArrowUpRight,
   ArrowRight,
-  Building,
-  Check,
-  X,
-  User
+  Building
 } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -114,10 +116,9 @@ const StatusUpdateDialog = ({
 // Ticket card component
 interface TicketCardProps {
   ticket: Ticket;
-  onStatusUpdate: () => void;
 }
 
-const TicketCard = ({ ticket, onStatusUpdate }: TicketCardProps) => {
+const TicketCard = ({ ticket }: TicketCardProps) => {
   return (
     <Card className="hover:bg-accent/5 transition-colors">
       <CardHeader className="p-4 pb-2">
@@ -149,16 +150,6 @@ const TicketCard = ({ ticket, onStatusUpdate }: TicketCardProps) => {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="p-4 pt-2 flex justify-end gap-2">
-        <Button variant="outline" onClick={onStatusUpdate}>
-          Update Status
-        </Button>
-        <Button variant="outline" asChild>
-          <Link to={`/tickets/${ticket.id}`}>
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </Button>
-      </CardFooter>
     </Card>
   );
 };
@@ -374,7 +365,6 @@ export function StaffDashboard() {
                     <TicketCard
                       key={ticket.id}
                       ticket={ticket}
-                      onStatusUpdate={() => openStatusDialog(ticket)}
                     />
                   ))}
                 </CardContent>
@@ -395,7 +385,6 @@ export function StaffDashboard() {
                     <TicketCard
                       key={ticket.id}
                       ticket={ticket}
-                      onStatusUpdate={() => openStatusDialog(ticket)}
                     />
                   ))}
                 </CardContent>
@@ -416,7 +405,6 @@ export function StaffDashboard() {
                     <TicketCard
                       key={ticket.id}
                       ticket={ticket}
-                      onStatusUpdate={() => openStatusDialog(ticket)}
                     />
                   ))}
                 </CardContent>

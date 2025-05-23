@@ -52,7 +52,7 @@ export function LoginPage() {
   const onSubmit = async (values: LoginFormValues) => {
     setIsLoading(true);
     try {
-      const success = await login(values.email, values.password);
+      const success = await login(values.email); // Pass only email, as login expects 1 argument
       
       if (success) {
         toast({

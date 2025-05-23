@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 import { formatDistanceToNow } from 'date-fns';
 import { useAuth } from '@/context/auth-context';
 import { useTickets, Ticket, TicketStatus } from '@/context/ticket-context';
@@ -58,7 +57,7 @@ const TicketPreviewCard = ({ ticket }: { ticket: Ticket }) => {
 
 export function TenantDashboard() {
   const { user } = useAuth();
-  const { tickets, getTicketsByUser } = useTickets();
+  const { getTicketsByUser } = useTickets();
   const [tab, setTab] = useState('overview');
 
   // Get user tickets

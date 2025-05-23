@@ -1,15 +1,6 @@
 import { useState } from 'react';
 import {
-  Bell,
-  Mail,
-  Lock,
-  Palette,
-  Globe,
-  Building,
   CreditCard,
-  Users,
-  Settings,
-  Shield
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';

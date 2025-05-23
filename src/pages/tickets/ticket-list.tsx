@@ -6,9 +6,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select';
 import { useAuth } from '@/context/auth-context';
-import { useTickets, Ticket, TicketStatus, TicketPriority, TicketCategory } from '@/context/ticket-context';
+import { useTickets, Ticket, TicketStatus, TicketPriority } from '@/context/ticket-context';
 import { AssignTicketDialog } from '@/components/tickets/assign-ticket-dialog';
 import { useToast } from '@/hooks/use-toast';
 
